@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">uncleWily</string>
+    <string name="app_name">Cantina Unidavi</string>
+    <string name="codigo">Código</string>
+    <string name="senha">Senha</string>
+    <string name="entrar">Entrar</string>
+    <string name="aguarde">Aguarde</string>
+    <string name="error_connection">Você não tem conexão com a internet</string>
+    <string name="error_request">Você não pode acessar esse serviço</string>
+    <string name="label_error_invalid_response">Resposta do servidor inválida</string>
 </resources>
