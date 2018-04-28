@@ -11,7 +11,7 @@ public class Produto {
 
     @Setter
     @Getter
-    private int cod;
+    private int codigo;
 
     @Setter
     @Getter
@@ -20,6 +20,10 @@ public class Produto {
     @Setter
     @Getter
     private String descricao;
+
+    @Setter
+    @Getter
+    private String photoUrl;
 
     @Setter
     @Getter
