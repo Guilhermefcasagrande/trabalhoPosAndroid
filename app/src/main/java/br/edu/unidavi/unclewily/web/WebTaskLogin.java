@@ -51,7 +51,7 @@ public class WebTaskLogin extends WebTaskBase{
             user.setToken(token);
             String photoUrl = responseAsJSON.getString("profile_url");
             user.setProfile_img_url(photoUrl);
-            user.setEmail(email);
+            user.setCodigo(email);
 
             EventBus.getDefault().post(user);
 

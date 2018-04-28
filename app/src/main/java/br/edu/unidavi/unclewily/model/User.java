@@ -11,7 +11,7 @@ public class User {
 
     @Getter
     @Setter
-    private int codigo;
+    private String codigo;
 
     @Getter
     @Setter
