@@ -10,4 +10,5 @@
     <string name="favoritos">Favoritos</string>
     <string name="configuracoes">Configurações</string>
     <string name="Sair">Sair</string>
+    <string name="error_empty">Não há produtos disponíveis.</string>
 </resources>
