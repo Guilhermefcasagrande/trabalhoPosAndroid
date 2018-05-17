@@ -3,8 +3,7 @@
 <br />
 <strong>Etrutura do Json</strong>
 <pre>
- {
-                "produtos": [
+          [
                     {
                         "codigo": 1,
                         "nome": "Bolinho",
@@ -77,6 +76,5 @@
                         "avaliacao": 5,
                         "imagem" : ""
                     }
-                ]
-            }
+             ]
 </pre>
