@@ -11,17 +11,13 @@ class ProdutoViewHolder extends RecyclerView.ViewHolder{
 
     ImageView imagem;
     TextView labelNome;
-    TextView labelDescricao;
-    TextView labelAvaiacao;
-    TextView labelDisponobilidade;
+    TextView labelPreco;
 
     public ProdutoViewHolder(View itemView){
         super(itemView);
 
         imagem = itemView.findViewById(R.id.img_cell);
         labelNome = itemView.findViewById(R.id.label_name);
-        labelDescricao = itemView.findViewById(R.id.label_descricao);
-        labelAvaiacao = itemView.findViewById(R.id.label_avaliacao);
-        labelDisponobilidade = itemView.findViewById(R.id.label_disponibilidade);
+        labelPreco = itemView.findViewById(R.id.label_preco);
     }
 }

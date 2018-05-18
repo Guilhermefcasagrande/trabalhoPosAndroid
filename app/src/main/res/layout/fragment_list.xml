@@ -4,16 +4,24 @@
     android:layout_height="match_parent">
     <!--tools:context="br.edu.unidavi.unclewily.features.ListFragment">-->
 
-    <TextView
+    <RelativeLayout
+        android:id="@+id/container_empty"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:gravity="center_horizontal"
-        tools:text="Nenhum meme"
-        android:text="@string/error_empty"/>
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center_horizontal"
+            tools:text="Nenhum produto"
+            android:text="@string/error_empty"/>
+
+    </RelativeLayout>
 
     <android.support.v7.widget.RecyclerView
-    android:id="@+id/recycler_memes"
+    android:id="@+id/recycler_produtos"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:visibility="visible"/>

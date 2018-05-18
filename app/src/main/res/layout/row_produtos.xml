@@ -10,6 +10,7 @@
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:layout_margin="8dp"
+        android:src="@drawable/ic_free_breakfast_black_24dp"
         />
 
     <TextView
@@ -24,35 +25,14 @@
         />
 
     <TextView
-        android:id="@+id/label_descricao"
+        android:id="@+id/label_preco"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/label_name"
         android:layout_toRightOf="@id/img_cell"
-        tools:text="Aqui estará a descrição do produto"
+        tools:text="RS 3.75"
         android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"/>
-
-    <TextView
-        android:id="@+id/label_avaliacao"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/img_cell"
-        tools:text="10"
-        android:layout_marginLeft="30dp"
         android:layout_marginBottom="8dp"
         android:textSize="20dp"/>
-
-    <TextView
-        android:id="@+id/label_disponibilidade"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/label_descricao"
-        android:layout_toRightOf="@id/img_cell"
-        tools:text="Disponível"
-        android:layout_marginLeft="8dp"
-        android:layout_marginBottom="8dp"
-        android:textSize="15dp"/>
 
 </RelativeLayout>

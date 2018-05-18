@@ -37,30 +37,22 @@ public class ProdutoAdapter extends RecyclerView.Adapter<ProdutoViewHolder> {
         final Produto myProduto = produtoList.get(position);
 
         holder.labelNome.setText(myProduto.getNome());
-        holder.labelDescricao.setText(myProduto.getDescricao());
-        holder.labelDisponobilidade.setText(myProduto.getDisponibilidade());
-        holder.labelAvaiacao.setText(myProduto.getAvaliacao());
+        holder.labelPreco.setText(myProduto.getDescricao());
 
         Picasso.with(contexto).load(myProduto.getPhotoUrl()).into(holder.imagem);
 
-        holder.itemView.setOnTouchListener(new View.OnTouchListener() {
+        /*holder.itemView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
 
                 //Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(myProduto.getNome()));
-                //Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(myProduto.getNome()));
-                //Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(myProduto.getNome()));
-                //Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(myProduto.getNome()));
-                //Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(myProduto.getNome()));
-
-                //contexto.startActivity(webIntent);
                 return true;
             }
-        });
+        });*/
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return produtoList.size();
     }
 }

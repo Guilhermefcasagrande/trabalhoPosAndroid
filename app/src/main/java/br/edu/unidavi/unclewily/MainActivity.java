@@ -1,6 +1,8 @@
 package br.edu.unidavi.unclewily;
 
 import android.content.Intent;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -8,6 +10,7 @@ import android.view.MenuInflater;
 import android.view.View;
 
 import br.edu.unidavi.unclewily.features.LoginActivity;
+import br.edu.unidavi.unclewily.features.ListFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,6 +18,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ListFragment listFragment = new ListFragment();
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.container, listFragment);
+        fragmentTransaction.commit();
     }
 
     @Override
