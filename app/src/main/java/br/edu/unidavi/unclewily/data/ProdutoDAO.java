@@ -1,5 +1,6 @@
 package br.edu.unidavi.unclewily.data;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -28,9 +29,10 @@ public class ProdutoDAO extends SQLiteOpenHelper {
     private static final String ROW_AVALIACAO = "avaliacao";
     private static final String ROW_DISPONIBILIDADE = "disponibilidade";
 
-    public ProdutoDAO(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
+    public ProdutoDAO(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
     }
+
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
@@ -55,14 +57,23 @@ public class ProdutoDAO extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getReadableDatabase();
 
-        String ADDLINE = "INSERT INTO " + TABLE_PRODUTO + " ("
-                + ROW_NOME + ", " + ROW_DESCRICAO + "," + ROW_PHOTOURL + ", " + ROW_AVALIACAO + ", " + ROW_DISPONIBILIDADE +
-                ") Values ('" + produto.getNome() + ", "
-                + produto.getDescricao() + ", "
-                + produto.getPhotoUrl() + ", "
-                + produto.getAvaliacao() + ", "
-                + produto.getDisponibilidade() + " ')";
-        db.execSQL(ADDLINE);
+        SQLiteDatabase dsb = getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(ROW_NOME, produto.getNome());
+        contentValues.put(ROW_DESCRICAO, produto.getDescricao());
+        contentValues.put(ROW_PHOTOURL, produto.getPhotoUrl());
+        contentValues.put(ROW_AVALIACAO, produto.getAvaliacao());
+        contentValues.put(ROW_DISPONIBILIDADE, produto.getDisponibilidade());
+        dsb.insert(TABLE_PRODUTO, null, contentValues);
+
+//        String ADDLINE = "INSERT INTO " + TABLE_PRODUTO + " ("
+//                + ROW_NOME + ", " + ROW_DESCRICAO + "," + ROW_PHOTOURL + ", " + ROW_AVALIACAO + ", " + ROW_DISPONIBILIDADE +
+//                ") Values ('" + produto.getNome() + ", "
+//                + produto.getDescricao() + ", "
+//                + produto.getPhotoUrl() + ", "
+//                + produto.getAvaliacao() + ", "
+//                + produto.getDisponibilidade() + " ')";
+//        db.execSQL(ADDLINE);
     }
 
     public Produto getById(int id) {

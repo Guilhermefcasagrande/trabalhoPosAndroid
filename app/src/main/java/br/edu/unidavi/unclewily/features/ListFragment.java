@@ -84,7 +84,6 @@ public class ListFragment extends Fragment {
     }
 
 
-
     @Subscribe
     public void onEvent(Error error){
         Snackbar.make(getView(), error.getMessage(),
