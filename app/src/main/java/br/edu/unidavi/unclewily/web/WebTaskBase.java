@@ -12,6 +12,7 @@ import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.Response;
 
 import org.greenrobot.eventbus.EventBus;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -19,6 +20,7 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import br.edu.unidavi.unclewily.R;
+import br.edu.unidavi.unclewily.data.ProdutoDAO;
 
 /**
  * Created by Guilherme on 11/04/2018.
@@ -39,6 +41,7 @@ public abstract class WebTaskBase extends AsyncTask<Void, Void, Void> {
     private int responseCode;
     private boolean silent;
 
+    private ProdutoDAO produtoDAO;
 
     public static final MediaType JSON
             = MediaType.parse("application/json; charset=utf-8");
@@ -50,9 +53,10 @@ public abstract class WebTaskBase extends AsyncTask<Void, Void, Void> {
 
     @Override
     protected Void doInBackground(Void... voids) {
-        if(!isOnline(context)){
+        if (!isOnline(context)) {
+            produtoDAO = new ProdutoDAO(getContext());
+            responseString = produtoDAO.getAll().toString();
             error = new Error(context.getString(R.string.error_connection));
-            responseString = null;
             return null;
         }
 
@@ -77,7 +81,7 @@ public abstract class WebTaskBase extends AsyncTask<Void, Void, Void> {
         try {
             response = client.newCall(request).execute();
             responseCode = response.code();
-            responseString =  response.body().string();
+            responseString = response.body().string();
         } catch (IOException e) {
             error = new Error(context.getString(R.string.error_connection));
         }
@@ -85,15 +89,15 @@ public abstract class WebTaskBase extends AsyncTask<Void, Void, Void> {
 
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
-        if(error!= null && !silent){
+        if (error != null && !silent) {
             EventBus.getDefault().post(error);
-        }else{
-            switch (getResponseCode()){
+        } else {
+            switch (getResponseCode()) {
                 case RESPONSE_OK:
                     try {
                         JSONObject responseJSON = new JSONObject(responseString);
                         String errorMessage = responseJSON.getString("erro");
-                        if(!silent){
+                        if (!silent) {
                             EventBus.getDefault().post(new Error(errorMessage));
                         }
                     } catch (JSONException e) {
@@ -116,6 +120,7 @@ public abstract class WebTaskBase extends AsyncTask<Void, Void, Void> {
         NetworkInfo netInfo = cm.getActiveNetworkInfo();
         return netInfo != null && netInfo.isConnectedOrConnecting();
     }
+
 
     public abstract void handleResponse(String response);
 

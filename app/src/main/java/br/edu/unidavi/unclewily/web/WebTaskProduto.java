@@ -52,7 +52,6 @@ public class WebTaskProduto extends WebTaskBase{
                 meuProduto.setPhotoUrl(produtoJSON.getString("imagem"));
                 meuProduto.setAvaliacao(produtoJSON.getInt("avaliacao"));
                 meuProduto.setDisponibilidade(produtoJSON.getInt("disponibilidade"));
-
                 produtoList.add(meuProduto);
             }
 
@@ -63,4 +62,79 @@ public class WebTaskProduto extends WebTaskBase{
                     R.string.error_request)));
         }
     }
+
+    public String tsqt = "[\n" +
+            "\t{\n" +
+            "\t\t\"codigo\": 1,\n" +
+            "\t\t\"nome\": \"Bolinho\",\n" +
+            "\t\t\"preco\": \"3.50\",\n" +
+            "\t\t\"disponibilidade\": 1,\n" +
+            "\t\t\"descricao\": \"Ótimo bolinho de carne\",\n" +
+            "\t\t\"avaliacao\": 8,\n" +
+            "\t\t\"imagem\" : \"https://upload.wikimedia.org/wikipedia/commons/2/2e/Fast_food_meal.jpg\"\n" +
+            "\t}, \n" +
+            "\t{\n" +
+            "\t\t\"codigo\": 2,\n" +
+            "\t\t\"nome\": \"Pastel frito\",\n" +
+            "\t\t\"preco\": \"2.50\",\n" +
+            "\t\t\"disponibilidade\": 1,\n" +
+            "\t\t\"descricao\": \"Ótimo pastel frito\",\n" +
+            "\t\t\"avaliacao\": 5,\n" +
+            "\t\t\"imagem\" : \"https://upload.wikimedia.org/wikipedia/commons/2/2e/Fast_food_meal.jpg\"\n" +
+            "\t},\n" +
+            "\t{\n" +
+            "\t\t\"codigo\": 3,                    \n" +
+            "\t\t\"nome\": \"Pastel assado\",\n" +
+            "\t\t\"preco\": \"2.75\",\n" +
+            "\t\t\"disponibilidade\": 1,\n" +
+            "\t\t\"descricao\": \"Ótimo pastel assado\",\n" +
+            "\t\t\"avaliacao\": 8,\n" +
+            "\t\t\"imagem\" : \"https://upload.wikimedia.org/wikipedia/commons/2/2e/Fast_food_meal.jpg\"\n" +
+            "\t},\n" +
+            "\t{\n" +
+            "\t\t\"codigo\": 4,\n" +
+            "\t\t\"nome\": \"Coxinha\",\n" +
+            "\t\t\"preco\": \"4.25\",\n" +
+            "\t\t\"disponibilidade\": 1,\n" +
+            "\t\t\"descricao\": \"Ótima coxinha\",\n" +
+            "\t\t\"avaliacao\": 1,\n" +
+            "\t\t\"imagem\" : \"https://upload.wikimedia.org/wikipedia/commons/2/2e/Fast_food_meal.jpg\"\n" +
+            "\t},\n" +
+            "\t{\n" +
+            "\t\t\"codigo\": 5,                    \n" +
+            "\t\t\"nome\": \"Pão com bolinho\",\n" +
+            "\t\t\"preco\": \"1.50\",\n" +
+            "\t\t\"disponibilidade\": 1,\n" +
+            "\t\t\"descricao\": \"Ótimo pão com bolinho de carne\",\n" +
+            "\t\t\"avaliacao\": 8,\n" +
+            "\t\t\"imagem\" : \"https://upload.wikimedia.org/wikipedia/commons/2/2e/Fast_food_meal.jpg\"\n" +
+            "\t},\n" +
+            "\t{\n" +
+            "\t\t\"codigo\": 6,                    \n" +
+            "\t\t\"nome\": \"X-salada\",\n" +
+            "\t\t\"preco\": \"35.50\",\n" +
+            "\t\t\"disponibilidade\": 1,\n" +
+            "\t\t\"descricao\": \"Ótimo x-salada\",\n" +
+            "\t\t\"avaliacao\": 1,\n" +
+            "\t\t\"imagem\" : \"https://upload.wikimedia.org/wikipedia/commons/2/2e/Fast_food_meal.jpg\"\n" +
+            "\t},\n" +
+            "\t{\n" +
+            "\t\t\"codigo\": 7,                    \n" +
+            "\t\t\"nome\": \"Pão de queijo\",\n" +
+            "\t\t\"preco\": \"2.25\",\n" +
+            "\t\t\"disponibilidade\": 1,\n" +
+            "\t\t\"descricao\": \"Ótimo pão de queijo\",\n" +
+            "\t\t\"avaliacao\": 10,\n" +
+            "\t\t\"imagem\" : \"https://upload.wikimedia.org/wikipedia/commons/2/2e/Fast_food_meal.jpg\"\n" +
+            "\t},\n" +
+            "\t{\n" +
+            "\t\t\"codigo\": 8,                        \n" +
+            "\t\t\"nome\": \"Pão de batata\",\n" +
+            "\t\t\"preco\": \"4.50\",\n" +
+            "\t\t\"disponibilidade\": 1,\n" +
+            "\t\t\"descricao\": \"Ótimo pão de batata\",\n" +
+            "\t\t\"avaliacao\": 5,\n" +
+            "\t\t\"imagem\" : \"https://upload.wikimedia.org/wikipedia/commons/2/2e/Fast_food_meal.jpg\"\n" +
+            "\t}\n" +
+            "]";
 }
