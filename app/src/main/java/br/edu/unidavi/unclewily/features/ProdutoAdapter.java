@@ -1,6 +1,7 @@
 package br.edu.unidavi.unclewily.features;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -8,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.squareup.picasso.Picasso;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.List;
 
@@ -33,7 +36,7 @@ public class ProdutoAdapter extends RecyclerView.Adapter<ProdutoViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(ProdutoViewHolder holder, int position) {
+    public void onBindViewHolder(final ProdutoViewHolder holder, int position) {
         final Produto myProduto = produtoList.get(position);
 
         holder.labelNome.setText(myProduto.getNome());
@@ -41,14 +44,15 @@ public class ProdutoAdapter extends RecyclerView.Adapter<ProdutoViewHolder> {
 
         Picasso.with(contexto).load(myProduto.getPhotoUrl()).into(holder.imagem);
 
-        /*holder.itemView.setOnTouchListener(new View.OnTouchListener() {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View v, MotionEvent event) {
+            public void onClick(View v) {
 
-                //Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(myProduto.getNome()));
-                return true;
+                EventBus.getDefault().post(myProduto);
+                Intent intent = new Intent(holder.itemView.getContext(), DetalheProdutoActivity.class);
+                holder.itemView.getContext().startActivity(intent);
             }
-        });*/
+        });
     }
 
     @Override
